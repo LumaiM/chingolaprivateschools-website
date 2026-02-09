@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chingola Private Schools Hub | Find the Best Schools</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a5f7a;
+            --secondary: #57cc99;
+            --accent: #ff9a3c;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), #2a7ca5);
+            color: white;
+            padding: 20px 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            font-size: 2.2rem;
+            color: var(--accent);
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 95, 122, 0.85), rgba(26, 95, 122, 0.9)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .search-box {
+            max-width: 600px;
+            margin: 30px auto 0;
+            background: white;
+            border-radius: 50px;
+            padding: 10px;
+            display: flex;
+            box-shadow: var(--shadow);
+        }
+        
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 50px;
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        .search-box button {
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 15px 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .search-box button:hover {
+            background: #e6892a;
+        }
+        
+        /* Schools Section */
+        .section-title {
+            text-align: center;
+            margin: 50px 0 30px;
+            color: var(--primary);
+            font-size: 2rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .schools-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+        
+        .school-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .school-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .school-image {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .school-info {
+            padding: 20px;
+        }
+        
+        .school-name {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        
+        .school-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .tag {
+            background: #e9f5ff;
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .school-details {
+            margin: 15px 0;
+        }
+        
+        .detail {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+        
+        .detail i {
+            color: var(--accent);
+            width: 20px;
+        }
+        
+        .school-card button {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 20px;
+            width: 100%;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 10px;
+        }
+        
+        .school-card button:hover {
+            background: #46b883;
+        }
+        
+        /* About Us Page */
+        .about-section {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-image {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        
+        .about-content h2 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .about-content h3 {
+            color: var(--accent);
+            margin: 25px 0 15px;
+            font-size: 1.5rem;
+        }
+        
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .feature-box {
+            background: #f8fafc;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .feature-box i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .feature-box h4 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .contact-info {
+            background: linear-gradient(135deg, #f8fafc, #e9f5ff);
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        
+        .contact-info h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .contact-details div {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .contact-details i {
+            color: var(--accent);
+            width: 20px;
+        }
+        
+        /* School Details Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal {
+            background: white;
+            border-radius: 12px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: translateY(50px);
+            transition: transform 0.3s;
+        }
+        
+        .modal-overlay.active .modal {
+            transform: translateY(0);
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-header {
+            padding: 30px 30px 20px;
+            background: linear-gradient(to right, var(--primary), #2a7ca5);
+            color: white;
+        }
+        
+        .modal-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .modal-body {
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .modal-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .modal-images img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        .modal-images img:first-child {
+            grid-column: 1 / span 2;
+            height: 200px;
+        }
+        
+        .modal-details h4 {
+            color: var(--primary);
+            margin: 20px 0 10px;
+            font-size: 1.3rem;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .modal-details p {
+            margin-bottom: 15px;
+        }
+        
+        .detail-list {
+            list-style: none;
+        }
+        
+        .detail-list li {
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .detail-list li span:first-child {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        /* Page Content */
+        .page-content {
+            padding: 60px 0;
+            min-height: 70vh;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h4 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .modal-body {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .schools-container {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+            
+            .modal-images {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-images img:first-child {
+                grid-column: 1;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .logo h1 {
+                font-size: 1.5rem;
+            }
+            
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.7rem;
+            }
+            
+            .schools-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image img {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-school"></i>
+                <h1>Chingola <span>Schools Hub</span></h1>
+            </div>
+            <nav class="nav-links">
+                <a href="#" data-page="home"><i class="fas fa-home"></i> Home</a>
+                <a href="#" data-page="schools"><i class="fas fa-graduation-cap"></i> Schools</a>
+                <a href="#" data-page="about"><i class="fas fa-info-circle"></i> About</a>
+                <a href="#" data-page="contact"><i class="fas fa-envelope"></i> Contact</a>
+            </nav>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Home Page Content -->
+    <div id="home-page" class="page-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h2>Find the Best Private Schools in Chingola</h2>
+                <p>Discover comprehensive information about private schools in Chingola, from reception to secondary levels. Compare fees, facilities, academic results, and more to make the right choice for your child.</p>
+                <div class="search-box">
+                    <input type="text" placeholder="Search for schools by name, level, or location...">
+                    <button><i class="fas fa-search"></i> Search</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Schools Section -->
+        <section id="schools" class="container">
+            <h2 class="section-title">Featured Schools in Chingola</h2>
+            <div class="schools-container" id="schools-container">
+                <!-- Schools will be dynamically inserted here -->
+            </div>
+        </section>
+    </div>
+
+    <!-- About Page Content -->
+    <div id="about-page" class="page-content" style="display: none;">
+        <section class="about-section">
+            <div class="container">
+                <h2 class="section-title">About Chingola Schools Hub</h2>
+                <div class="about-container">
+                    <div class="about-image">
+                        <!-- Replace this image with your company photo -->
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Chingola Schools Hub Team">
+                    </div>
+                    <div class="about-content">
+                        <h2>Your Trusted Partner in Education and Technology</h2>
+                        <p>Welcome to Chingola Schools Hub, a premier platform developed by a Chingola-based ICT company specializing in comprehensive technology solutions for the Copperbelt region.</p>
+                        
+                        <h3>Who We Are</h3>
+                        <p>We are a dynamic ICT company based in Chingola, combining expertise in ICT training, web development, and digital advertising platforms. Our mission is to bridge the technology gap in education by creating innovative solutions that connect parents with the best educational opportunities for their children.</p>
+                        
+                        <div class="about-features">
+                            <div class="feature-box">
+                                <i class="fas fa-laptop-code"></i>
+                                <h4>ICT Training</h4>
+                                <p>We offer comprehensive ICT training programs for schools, businesses, and individuals, empowering our community with essential digital skills for the 21st century.</p>
+                            </div>
+                            <div class="feature-box">
+                                <i class="fas fa-code"></i>
+                                <h4>Web Development</h4>
+                                <p>Specializing in responsive, mobile-friendly web solutions tailored to the unique needs of Zambian businesses and educational institutions.</p>
+                            </div>
+                            <div class="feature-box">
+                                <i class="fas fa-bullhorn"></i>
+                                <h4>Digital Advertising</h4>
+                                <p>We create effective web service platforms that help schools and businesses reach their target audiences through innovative digital advertising solutions.</p>
+                            </div>
+                        </div>
+                        
+                        <h3>Our Vision</h3>
+                        <p>To become the leading technology solutions provider in the Copperbelt region, revolutionizing how educational information is accessed and shared while equipping our community with essential digital skills for economic growth and development.</p>
+                        
+                        <div class="contact-info">
+                            <h4>Contact Information</h4>
+                            <div class="contact-details">
+                                <div>
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>57 Jacaranda Street, Kabundi North, Chingola</span>
+                                </div>
+                                <div>
+                                    <i class="fas fa-phone"></i>
+                                    <span>Cell: +260 972 598 424</span>
+                                </div>
+                                <div>
+                                    <i class="fas fa-envelope"></i>
+                                    <span>info@chingolaschoolshub.com</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- School Details Modal -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal" id="modal">
+            <button class="modal-close" id="modal-close"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <h3 id="modal-school-name">School Name</h3>
+                <div class="school-tags" id="modal-school-tags">
+                    <!-- Tags will be inserted here -->
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="modal-images" id="modal-school-images">
+                    <!-- Images will be inserted here -->
+                </div>
+                <div class="modal-details">
+                    <h4>About</h4>
+                    <p id="modal-school-description">Description will appear here.</p>
+                    
+                    <h4>Key Information</h4>
+                    <ul class="detail-list" id="modal-school-info">
+                        <!-- School info will be inserted here -->
+                    </ul>
+                    
+                    <h4>Contact Details</h4>
+                    <ul class="detail-list" id="modal-school-contact">
+                        <!-- Contact info will be inserted here -->
+                    </ul>
+                    
+                    <h4>Academic Performance</h4>
+                    <p id="modal-school-results">Results information will appear here.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Chingola Schools Hub</h4>
+                    <p>Your central platform for discovering and comparing private schools in Chingola, Copperbelt. We help parents make informed decisions for their children's education.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#" data-page="home">Home</a></li>
+                        <li><a href="#" data-page="schools">All Schools</a></li>
+                        <li><a href="#" data-page="about">About Us</a></li>
+                        <li><a href="#" data-page="contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 57 Jacaranda Street, Kabundi North, Chingola</li>
+                        <li><i class="fas fa-phone"></i> +260 972 598 424</li>
+                        <li><i class="fas fa-envelope"></i> info@chingolaschoolshub.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 Chingola Private Schools Hub. All rights reserved.</p>
+                <p>Powered by Chingola ICT Solutions - Training & Web Development</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sample school data - NOW WITH 6 SCHOOLS INCLUDING RIVERSIDE AND KABUNDI SOUTH
+        const schools = [
+            {
+                id: 1,
+                name: "Bright Future International School",
+                description: "Bright Future International School offers a comprehensive curriculum from reception to grade 12. With state-of-the-art facilities and dedicated staff, we focus on holistic development of each child.",
+                tags: ["Reception", "Primary", "Secondary", "Boarding"],
+                image: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                images: [
+                    "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                ],
+                fees: "K25,000 - K45,000 per term",
+                location: "Nchanga North, Chingola",
+                enrollment: "January and September",
+                contact: "brightfuture@email.com | +260 978 654 321",
+                results: "95% pass rate in 2022 Grade 12 exams. 85% of students qualified for university."
+            },
+            {
+                id: 2,
+                name: "Little Scholars Academy",
+                description: "Little Scholars Academy specializes in early childhood and primary education. Our child-centered approach ensures each student develops a strong foundation for future learning.",
+                tags: ["Reception", "Primary", "Day School"],
+                image: "https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                images: [
+                    "https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1511735111819-9a3f7709049c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                ],
+                fees: "K15,000 - K25,000 per term",
+                location: "Town Centre, Chingola",
+                enrollment: "Open enrollment throughout the year",
+                contact: "littlescholars@email.com | +260 978 123 456",
+                results: "Consistently high performance in district assessments. 100% transition rate to secondary schools."
+            },
+            {
+                id: 3,
+                name: "Chingola Montessori School",
+                description: "Following the Montessori method, we provide an individualized learning environment that fosters independence, creativity, and critical thinking skills from early years.",
+                tags: ["Montessori", "Reception", "Primary"],
+                image: "https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                images: [
+                    "https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1519457431-44ccd64a579b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                ],
+                fees: "K20,000 - K30,000 per term",
+                location: "Nchanga South, Chingola",
+                enrollment: "January and April",
+                contact: "montessorichingola@email.com | +260 978 555 123",
+                results: "Exceptional performance in creative and cognitive assessments. Strong foundation in literacy and numeracy."
+            },
+            {
+                id: 4,
+                name: "St. Mary's Secondary School",
+                description: "St. Mary's is a renowned Catholic secondary school offering both science and arts streams. We emphasize academic excellence, moral values, and community service.",
+                tags: ["Secondary", "Boarding", "Science", "Arts"],
+                image: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                images: [
+                    "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1524178234883-043d5c3f3cf4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                ],
+                fees: "K35,000 - K50,000 per term",
+                location: "Chiwempala, Chingola",
+                enrollment: "September for Form 1",
+                contact: "stmarys@email.com | +260 978 777 888",
+                results: "98% pass rate in 2022 Grade 12 exams. 15 students achieved distinctions in all subjects."
+            },
+            // NEW SCHOOL: Riverside Area
+            {
+                id: 5,
+                name: "Riverside Preparatory School",
+                description: "Located in the serene Riverside area, our school offers a nurturing environment with modern facilities. We focus on academic excellence, character development, and extracurricular enrichment.",
+                tags: ["Reception", "Primary", "Day School", "Modern Facilities"],
+                image: "https://images.unsplash.com/photo-1497636577773-f1231844b336?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                images: [
+                    "https://images.unsplash.com/photo-1497636577773-f1231844b336?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                ],
+                fees: "K22,000 - K32,000 per term",
+                location: "Riverside, Chingola",
+                enrollment: "January, May, and September",
+                contact: "riversideprep@email.com | +260 978 444 555",
+                results: "Consistently ranked among top 5 primary schools in Chingola. 92% of students score above district average in national assessments."
+            },
+            // NEW SCHOOL: Kabundi South Area
+            {
+                id: 6,
+                name: "Kabundi South Excellence Academy",
+                description: "Serving the Kabundi South community, we provide quality education from reception to grade 9. Our dedicated teachers and comprehensive curriculum prepare students for academic success and responsible citizenship.",
+                tags: ["Reception", "Primary", "Junior Secondary", "Community Focus"],
+                image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                images: [
+                    "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1524178234883-043d5c3f3cf4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                ],
+                fees: "K18,000 - K28,000 per term",
+                location: "Kabundi South, Chingola",
+                enrollment: "January and August",
+                contact: "kabundisouthacademy@email.com | +260 978 666 777",
+                results: "Rapidly improving academic performance. 85% pass rate in grade 9 exams with increasing distinction rates each year."
+            }
+        ];
+
+        // DOM elements
+        const homePage = document.getElementById('home-page');
+        const aboutPage = document.getElementById('about-page');
+        const schoolsContainer = document.getElementById('schools-container');
+        const modalOverlay = document.getElementById('modal-overlay');
+        const modal = document.getElementById('modal');
+        const modalClose = document.getElementById('modal-close');
+        const modalSchoolName = document.getElementById('modal-school-name');
+        const modalSchoolTags = document.getElementById('modal-school-tags');
+        const modalSchoolImages = document.getElementById('modal-school-images');
+        const modalSchoolDescription = document.getElementById('modal-school-description');
+        const modalSchoolInfo = document.getElementById('modal-school-info');
+        const modalSchoolContact = document.getElementById('modal-school-contact');
+        const modalSchoolResults = document.getElementById('modal-school-results');
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-links');
+
+        // Page navigation function
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-content').forEach(page => {
+                page.style.display = 'none';
+            });
+            
+            // Show selected page
+            const pageToShow = document.getElementById(pageId);
+            if (pageToShow) {
+                pageToShow.style.display = 'block';
+                
+                // If showing schools page, render schools
+                if (pageId === 'home-page') {
+                    renderSchools();
+                }
+            }
+        }
+
+        // Initialize page navigation
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const page = this.getAttribute('data-page');
+                
+                if (page === 'home') {
+                    showPage('home-page');
+                } else if (page === 'about') {
+                    showPage('about-page');
+                } else if (page === 'contact') {
+                    // For now, just show about page
+                    showPage('about-page');
+                } else if (page === 'schools') {
+                    showPage('home-page');
+                    // Scroll to schools section
+                    setTimeout(() => {
+                        document.getElementById('schools').scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                }
+                
+                // Close mobile menu if open
+                if (window.innerWidth <= 768) {
+                    navMenu.style.display = 'none';
+                }
+            });
+        });
+
+        // Render schools
+        function renderSchools() {
+            schoolsContainer.innerHTML = '';
+            
+            schools.forEach(school => {
+                const schoolCard = document.createElement('div');
+                schoolCard.className = 'school-card';
+                schoolCard.innerHTML = `
+                    <img src="${school.image}" alt="${school.name}" class="school-image">
+                    <div class="school-info">
+                        <h3 class="school-name">${school.name}</h3>
+                        <div class="school-tags">
+                            ${school.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        </div>
+                        <div class="school-details">
+                            <div class="detail">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <span>Fees: ${school.fees}</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>${school.location}</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Enrollment: ${school.enrollment}</span>
+                            </div>
+                        </div>
+                        <button class="view-details" data-id="${school.id}">
+                            <i class="fas fa-info-circle"></i> View Details
+                        </button>
+                    </div>
+                `;
+                
+                schoolsContainer.appendChild(schoolCard);
+            });
+            
+            // Add event listeners to view details buttons
+            document.querySelectorAll('.view-details').forEach(button => {
+                button.addEventListener('click', function() {
+                    const schoolId = parseInt(this.getAttribute('data-id'));
+                    openSchoolModal(schoolId);
+                });
+            });
+        }
+
+        // Open school modal with details
+        function openSchoolModal(schoolId) {
+            const school = schools.find(s => s.id === schoolId);
+            
+            if (!school) return;
+            
+            // Set modal content
+            modalSchoolName.textContent = school.name;
+            modalSchoolDescription.textContent = school.description;
+            modalSchoolResults.textContent = school.results;
+            
+            // Set tags
+            modalSchoolTags.innerHTML = '';
+            school.tags.forEach(tag => {
+                const tagElement = document.createElement('span');
+                tagElement.className = 'tag';
+                tagElement.textContent = tag;
+                modalSchoolTags.appendChild(tagElement);
+            });
+            
+            // Set images
+            modalSchoolImages.innerHTML = '';
+            school.images.forEach(img => {
+                const imgElement = document.createElement('img');
+                imgElement.src = img;
+                imgElement.alt = school.name;
+                modalSchoolImages.appendChild(imgElement);
+            });
+            
+            // Set school info
+            modalSchoolInfo.innerHTML = `
+                <li><span>Levels Offered</span><span>${school.tags.join(', ')}</span></li>
+                <li><span>Termly Fees</span><span>${school.fees}</span></li>
+                <li><span>Location</span><span>${school.location}</span></li>
+                <li><span>Enrollment Period</span><span>${school.enrollment}</span></li>
+            `;
+            
+            // Set contact info
+            modalSchoolContact.innerHTML = `
+                <li><span>Email</span><span>${school.contact.split(' | ')[0]}</span></li>
+                <li><span>Phone</span><span>${school.contact.split(' | ')[1]}</span></li>
+            `;
+            
+            // Show modal
+            modalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close modal
+        modalClose.addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', function(e) {
+            if (e.target === modalOverlay) {
+                closeModal();
+            }
+        });
+
+        function closeModal() {
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Search functionality
+        const searchInput = document.querySelector('.search-box input');
+        const searchButton = document.querySelector('.search-box button');
+
+        searchButton.addEventListener('click', performSearch);
+        searchInput.addEventListener('keyup', function(e) {
+            if (e.key === 'Enter') performSearch();
+        });
+
+        function performSearch() {
+            const searchTerm = searchInput.value.toLowerCase().trim();
+            
+            if (!searchTerm) {
+                renderSchools();
+                return;
+            }
+            
+            const filteredSchools = schools.filter(school => 
+                school.name.toLowerCase().includes(searchTerm) ||
+                school.tags.some(tag => tag.toLowerCase().includes(searchTerm)) ||
+                school.location.toLowerCase().includes(searchTerm) ||
+                school.description.toLowerCase().includes(searchTerm)
+            );
+            
+            // Render filtered schools
+            schoolsContainer.innerHTML = '';
+            
+            if (filteredSchools.length === 0) {
+                schoolsContainer.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align: center; padding: 40px; background: white; border-radius: 12px; box-shadow: var(--shadow);">
+                        <i class="fas fa-search" style="font-size: 3rem; color: var(--primary); margin-bottom: 20px;"></i>
+                        <h3 style="color: var(--primary); margin-bottom: 10px;">No schools found</h3>
+                        <p>Try searching with different keywords like "primary", "secondary", or a specific location.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            filteredSchools.forEach(school => {
+                const schoolCard = document.createElement('div');
+                schoolCard.className = 'school-card';
+                schoolCard.innerHTML = `
+                    <img src="${school.image}" alt="${school.name}" class="school-image">
+                    <div class="school-info">
+                        <h3 class="school-name">${school.name}</h3>
+                        <div class="school-tags">
+                            ${school.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        </div>
+                        <div class="school-details">
+                            <div class="detail">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <span>Fees: ${school.fees}</span>
+                            </div>
+                            <div class="detail">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>${school.location}</span>
+                            </div>
+                        </div>
+                        <button class="view-details" data-id="${school.id}">
+                            <i class="fas fa-info-circle"></i> View Details
+                        </button>
+                    </div>
+                `;
+                
+                schoolsContainer.appendChild(schoolCard);
+            });
+            
+            // Add event listeners to filtered school buttons
+            document.querySelectorAll('.view-details').forEach(button => {
+                button.addEventListener('click', function() {
+                    const schoolId = parseInt(this.getAttribute('data-id'));
+                    openSchoolModal(schoolId);
+                });
+            });
+        }
+
+        // Mobile menu toggle
+        mobileMenuBtn.addEventListener('click', function() {
+            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Initialize the page
+        showPage('home-page');
+        renderSchools();
+    </script>
+</body>
+</html>
