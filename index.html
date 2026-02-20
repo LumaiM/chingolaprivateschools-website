@@ -262,7 +262,7 @@
             background: #46b883;
         }
         
-        /* About Us Page */
+        /* About Us Page - Enhanced */
         .about-section {
             padding: 80px 0;
             background: white;
@@ -272,7 +272,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 50px;
-            align-items: center;
+            align-items: start;
         }
         
         .about-image {
@@ -297,6 +297,31 @@
             color: var(--accent);
             margin: 25px 0 15px;
             font-size: 1.5rem;
+        }
+        
+        .verification-badge {
+            background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+            border-left: 4px solid #4caf50;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .verification-badge i {
+            color: #4caf50;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .verification-badge h4 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .verification-badge p {
+            color: #1b5e20;
+            font-style: italic;
         }
         
         .about-features {
@@ -356,7 +381,7 @@
             width: 20px;
         }
         
-        /* School Details Modal */
+        /* School Details Modal - Enhanced */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -382,7 +407,7 @@
         .modal {
             background: white;
             border-radius: 12px;
-            max-width: 900px;
+            max-width: 1000px;
             width: 100%;
             max-height: 90vh;
             overflow-y: auto;
@@ -426,38 +451,46 @@
         
         .modal-body {
             padding: 30px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
         }
         
         .modal-images {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
+            margin-bottom: 30px;
         }
         
         .modal-images img {
             width: 100%;
-            height: 150px;
+            height: 200px;
             object-fit: cover;
             border-radius: 8px;
         }
         
         .modal-images img:first-child {
             grid-column: 1 / span 2;
-            height: 200px;
+            height: 300px;
         }
         
-        .modal-details h4 {
+        .modal-details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .modal-section {
+            margin-bottom: 25px;
+        }
+        
+        .modal-section h4 {
             color: var(--primary);
-            margin: 20px 0 10px;
+            margin-bottom: 15px;
             font-size: 1.3rem;
             padding-bottom: 5px;
             border-bottom: 2px solid #eee;
         }
         
-        .modal-details p {
+        .modal-section p {
             margin-bottom: 15px;
         }
         
@@ -474,6 +507,67 @@
         .detail-list li span:first-child {
             font-weight: 600;
             color: var(--primary);
+        }
+        
+        .activities-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+        
+        .activity-item {
+            background: #f0f7ff;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .activity-item i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+        
+        .activity-item h5 {
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .activity-item p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .special-service {
+            background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .service-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .service-header i {
+            font-size: 2.5rem;
+            color: var(--accent);
+        }
+        
+        .service-header h5 {
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        .service-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-top: 10px;
         }
         
         /* Page Content */
@@ -515,6 +609,7 @@
             color: #ddd;
             text-decoration: none;
             transition: color 0.3s;
+            cursor: pointer;
         }
         
         .footer-column ul li a:hover {
@@ -531,7 +626,7 @@
         
         /* Responsive Design */
         @media (max-width: 992px) {
-            .modal-body {
+            .modal-details-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -567,6 +662,7 @@
             
             .modal-images img:first-child {
                 grid-column: 1;
+                height: 200px;
             }
         }
         
@@ -599,6 +695,10 @@
             .about-image img {
                 height: 300px;
             }
+            
+            .activities-list {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -628,7 +728,7 @@
         <section class="hero">
             <div class="container">
                 <h2>Find the Best Private Schools in Chingola</h2>
-                <p>Discover comprehensive information about private schools in Chingola, from reception to secondary levels. Compare fees, facilities, academic results, and more to make the right choice for your child.</p>
+                <p>Discover comprehensive, verified information about private schools in Chingola, from reception to secondary levels. Compare fees, facilities, academic results, and more to make the right choice for your child.</p>
                 <div class="search-box">
                     <input type="text" placeholder="Search for schools by name, level, or location...">
                     <button><i class="fas fa-search"></i> Search</button>
@@ -645,7 +745,7 @@
         </section>
     </div>
 
-    <!-- About Page Content -->
+    <!-- About Page Content - Enhanced -->
     <div id="about-page" class="page-content" style="display: none;">
         <section class="about-section">
             <div class="container">
@@ -661,6 +761,13 @@
                         
                         <h3>Who We Are</h3>
                         <p>We are a dynamic ICT company based in Chingola, combining expertise in ICT training, web development, and digital advertising platforms. Our mission is to bridge the technology gap in education by creating innovative solutions that connect parents with the best educational opportunities for their children.</p>
+                        
+                        <!-- New Verification Badge -->
+                        <div class="verification-badge">
+                            <i class="fas fa-shield-alt"></i>
+                            <h4>Our Commitment to Accuracy</h4>
+                            <p>We vet all information provided by schools to ensure complete accuracy. Our dedicated team personally visits schools to verify examination results, inspect school premises, confirm exact locations, and observe academic activities firsthand. What you read here is thoroughly verified, true, and authentic. We take pride in delivering reliable information you can trust for your child's education.</p>
+                        </div>
                         
                         <div class="about-features">
                             <div class="feature-box">
@@ -706,7 +813,57 @@
         </section>
     </div>
 
-    <!-- School Details Modal -->
+    <!-- Contact Page Content -->
+    <div id="contact-page" class="page-content" style="display: none;">
+        <section class="about-section">
+            <div class="container">
+                <h2 class="section-title">Contact Us</h2>
+                <div class="about-container">
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Contact Us">
+                    </div>
+                    <div class="about-content">
+                        <h2>Get in Touch With Us</h2>
+                        <p>We're here to help you find the perfect school for your child or to assist schools in listing their information on our platform.</p>
+                        
+                        <div class="contact-info" style="margin-top: 20px;">
+                            <h4>Our Office</h4>
+                            <div class="contact-details">
+                                <div>
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>57 Jacaranda Street, Kabundi North, Chingola</span>
+                                </div>
+                                <div>
+                                    <i class="fas fa-phone"></i>
+                                    <span>+260 972 598 424</span>
+                                </div>
+                                <div>
+                                    <i class="fas fa-envelope"></i>
+                                    <span>info@chingolaschoolshub.com</span>
+                                </div>
+                                <div>
+                                    <i class="fas fa-clock"></i>
+                                    <span>Mon-Fri: 8:00 AM - 5:00 PM</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 30px;">
+                            <h3>Follow Us</h3>
+                            <div style="display: flex; gap: 15px; margin-top: 15px;">
+                                <a href="#" style="color: var(--primary); font-size: 2rem;"><i class="fab fa-facebook"></i></a>
+                                <a href="#" style="color: var(--primary); font-size: 2rem;"><i class="fab fa-twitter"></i></a>
+                                <a href="#" style="color: var(--primary); font-size: 2rem;"><i class="fab fa-linkedin"></i></a>
+                                <a href="#" style="color: var(--primary); font-size: 2rem;"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- School Details Modal - Enhanced -->
     <div class="modal-overlay" id="modal-overlay">
         <div class="modal" id="modal">
             <button class="modal-close" id="modal-close"><i class="fas fa-times"></i></button>
@@ -720,22 +877,51 @@
                 <div class="modal-images" id="modal-school-images">
                     <!-- Images will be inserted here -->
                 </div>
-                <div class="modal-details">
-                    <h4>About</h4>
-                    <p id="modal-school-description">Description will appear here.</p>
+                
+                <div class="modal-details-grid">
+                    <div>
+                        <div class="modal-section">
+                            <h4>About the School</h4>
+                            <p id="modal-school-description">Description will appear here.</p>
+                        </div>
+                        
+                        <div class="modal-section">
+                            <h4>Key Information</h4>
+                            <ul class="detail-list" id="modal-school-info">
+                                <!-- School info will be inserted here -->
+                            </ul>
+                        </div>
+                        
+                        <div class="modal-section">
+                            <h4>Contact Details</h4>
+                            <ul class="detail-list" id="modal-school-contact">
+                                <!-- Contact info will be inserted here -->
+                            </ul>
+                        </div>
+                        
+                        <div class="modal-section">
+                            <h4>Academic Performance</h4>
+                            <p id="modal-school-results">Results information will appear here.</p>
+                        </div>
+                    </div>
                     
-                    <h4>Key Information</h4>
-                    <ul class="detail-list" id="modal-school-info">
-                        <!-- School info will be inserted here -->
-                    </ul>
-                    
-                    <h4>Contact Details</h4>
-                    <ul class="detail-list" id="modal-school-contact">
-                        <!-- Contact info will be inserted here -->
-                    </ul>
-                    
-                    <h4>Academic Performance</h4>
-                    <p id="modal-school-results">Results information will appear here.</p>
+                    <div>
+                        <!-- NEW: Extra Curricular Activities Section -->
+                        <div class="modal-section">
+                            <h4><i class="fas fa-futbol" style="color: var(--accent); margin-right: 10px;"></i> Extra Curricular Activities</h4>
+                            <div class="activities-list" id="modal-activities">
+                                <!-- Activities will be inserted here -->
+                            </div>
+                        </div>
+                        
+                        <!-- NEW: Special Services Section with Bus Image -->
+                        <div class="modal-section">
+                            <h4><i class="fas fa-star" style="color: var(--accent); margin-right: 10px;"></i> Special Services</h4>
+                            <div class="special-service" id="modal-special-services">
+                                <!-- Special services will be inserted here -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -747,19 +933,19 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <h4>Chingola Schools Hub</h4>
-                    <p>Your central platform for discovering and comparing private schools in Chingola, Copperbelt. We help parents make informed decisions for their children's education.</p>
+                    <p>Your central platform for discovering and comparing private schools in Chingola, Copperbelt. All information is personally verified by our team for accuracy and authenticity.</p>
                 </div>
                 <div class="footer-column">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#" data-page="home">Home</a></li>
-                        <li><a href="#" data-page="schools">All Schools</a></li>
-                        <li><a href="#" data-page="about">About Us</a></li>
-                        <li><a href="#" data-page="contact">Contact Us</a></li>
+                        <li><a data-page="home">Home</a></li>
+                        <li><a data-page="schools">All Schools</a></li>
+                        <li><a data-page="about">About Us</a></li>
+                        <li><a data-page="contact">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h4>Contact Us</h4>
+                    <h4>Contact Info</h4>
                     <ul>
                         <li><i class="fas fa-map-marker-alt"></i> 57 Jacaranda Street, Kabundi North, Chingola</li>
                         <li><i class="fas fa-phone"></i> +260 972 598 424</li>
@@ -775,7 +961,7 @@
     </footer>
 
     <script>
-        // Sample school data - NOW WITH 6 SCHOOLS INCLUDING RIVERSIDE AND KABUNDI SOUTH
+        // Complete school data with 6 schools including Riverside and Kabundi South
         const schools = [
             {
                 id: 1,
@@ -792,7 +978,21 @@
                 location: "Nchanga North, Chingola",
                 enrollment: "January and September",
                 contact: "brightfuture@email.com | +260 978 654 321",
-                results: "95% pass rate in 2022 Grade 12 exams. 85% of students qualified for university."
+                results: "95% pass rate in 2022 Grade 12 exams. 85% of students qualified for university.",
+                // NEW: Activities
+                activities: [
+                    { name: "Sports Academy", description: "Football, basketball, athletics", icon: "fa-futbol" },
+                    { name: "Debate Club", description: "Public speaking & critical thinking", icon: "fa-comments" },
+                    { name: "Chess Club", description: "Strategic thinking development", icon: "fa-chess" },
+                    { name: "Music & Drama", description: "Choir, band, theater productions", icon: "fa-music" }
+                ],
+                // NEW: Special Services
+                specialServices: {
+                    transport: "School bus service available for all major routes in Chingola. Safe, reliable transportation with trained drivers and matrons.",
+                    transportImage: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                    meals: "Nutritious meal program with breakfast and lunch options",
+                    library: "Well-stocked library with digital resources"
+                }
             },
             {
                 id: 2,
@@ -809,7 +1009,19 @@
                 location: "Town Centre, Chingola",
                 enrollment: "Open enrollment throughout the year",
                 contact: "littlescholars@email.com | +260 978 123 456",
-                results: "Consistently high performance in district assessments. 100% transition rate to secondary schools."
+                results: "Consistently high performance in district assessments. 100% transition rate to secondary schools.",
+                activities: [
+                    { name: "Early Sports", description: "Age-appropriate physical activities", icon: "fa-child" },
+                    { name: "Art & Craft", description: "Creative expression classes", icon: "fa-paint-brush" },
+                    { name: "Story Time", description: "Reading and storytelling", icon: "fa-book" },
+                    { name: "Music & Movement", description: "Rhythm and dance", icon: "fa-music" }
+                ],
+                specialServices: {
+                    transport: "Door-to-door transport service for young learners with child safety seats and attendants.",
+                    transportImage: "https://images.unsplash.com/photo-1591280063444-d3c1c5e4f8c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                    meals: "Healthy snacks and lunch program",
+                    daycare: "Extended care hours available"
+                }
             },
             {
                 id: 3,
@@ -826,7 +1038,19 @@
                 location: "Nchanga South, Chingola",
                 enrollment: "January and April",
                 contact: "montessorichingola@email.com | +260 978 555 123",
-                results: "Exceptional performance in creative and cognitive assessments. Strong foundation in literacy and numeracy."
+                results: "Exceptional performance in creative and cognitive assessments. Strong foundation in literacy and numeracy.",
+                activities: [
+                    { name: "Practical Life", description: "Real-world skill development", icon: "fa-hand-sparkles" },
+                    { name: "Sensorial Activities", description: "Sensory learning experiences", icon: "fa-eye" },
+                    { name: "Gardening", description: "Nature and plant care", icon: "fa-seedling" },
+                    { name: "Cultural Studies", description: "Geography & culture exploration", icon: "fa-globe" }
+                ],
+                specialServices: {
+                    transport: "Montessori-dedicated transport with trained assistants for safe commute.",
+                    transportImage: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                    meals: "Organic meal program",
+                    afterSchool: "Montessori-based after school programs"
+                }
             },
             {
                 id: 4,
@@ -843,9 +1067,20 @@
                 location: "Chiwempala, Chingola",
                 enrollment: "September for Form 1",
                 contact: "stmarys@email.com | +260 978 777 888",
-                results: "98% pass rate in 2022 Grade 12 exams. 15 students achieved distinctions in all subjects."
+                results: "98% pass rate in 2022 Grade 12 exams. 15 students achieved distinctions in all subjects.",
+                activities: [
+                    { name: "Sports Teams", description: "Football, netball, volleyball, athletics", icon: "fa-futbol" },
+                    { name: "Science Club", description: "Experiments and science fairs", icon: "fa-flask" },
+                    { name: "Debate & Drama", description: "Public speaking and theater", icon: "fa-masks-theater" },
+                    { name: "Community Service", description: "Outreach programs", icon: "fa-hands-helping" }
+                ],
+                specialServices: {
+                    transport: "Boarding school with scheduled transport for holidays and exeat weekends.",
+                    transportImage: "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                    meals: "Full boarding meals included",
+                    library: "Extended study hours in library"
+                }
             },
-            // NEW SCHOOL: Riverside Area
             {
                 id: 5,
                 name: "Riverside Preparatory School",
@@ -861,34 +1096,57 @@
                 location: "Riverside, Chingola",
                 enrollment: "January, May, and September",
                 contact: "riversideprep@email.com | +260 978 444 555",
-                results: "Consistently ranked among top 5 primary schools in Chingola. 92% of students score above district average in national assessments."
+                results: "Consistently ranked among top 5 primary schools in Chingola. 92% of students score above district average in national assessments.",
+                activities: [
+                    { name: "Swimming", description: "Professional swimming lessons", icon: "fa-person-swimming" },
+                    { name: "Chess Club", description: "Strategic thinking", icon: "fa-chess" },
+                    { name: "Ballet & Dance", description: "Creative movement", icon: "fa-music" },
+                    { name: "Young Engineers", description: "STEM activities", icon: "fa-robot" }
+                ],
+                specialServices: {
+                    transport: "Modern fleet of school buses with GPS tracking and safety monitors.",
+                    transportImage: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                    meals: "Catered meals from professional kitchen",
+                    afterCare: "After school care until 5:30 PM"
+                }
             },
-            // NEW SCHOOL: Kabundi South Area
             {
                 id: 6,
                 name: "Kabundi South Excellence Academy",
                 description: "Serving the Kabundi South community, we provide quality education from reception to grade 9. Our dedicated teachers and comprehensive curriculum prepare students for academic success and responsible citizenship.",
                 tags: ["Reception", "Primary", "Junior Secondary", "Community Focus"],
-                image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                image: "https://images.unsplash.com/photo-1524178234883-043d5c3f3cf4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
                 images: [
-                    "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-                    "https://images.unsplash.com/photo-1524178234883-043d5c3f3cf4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
-                    "https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                    "https://images.unsplash.com/photo-1524178234883-043d5c3f3cf4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                    "https://images.unsplash.com/photo-1511735111819-9a3f7709049c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
                 ],
                 fees: "K18,000 - K28,000 per term",
                 location: "Kabundi South, Chingola",
                 enrollment: "January and August",
                 contact: "kabundisouthacademy@email.com | +260 978 666 777",
-                results: "Rapidly improving academic performance. 85% pass rate in grade 9 exams with increasing distinction rates each year."
+                results: "Rapidly improving academic performance. 85% pass rate in grade 9 exams with increasing distinction rates each year.",
+                activities: [
+                    { name: "Football Academy", description: "Professional coaching", icon: "fa-futbol" },
+                    { name: "Traditional Dance", description: "Cultural preservation", icon: "fa-drum" },
+                    { name: "Homework Club", description: "Guided study sessions", icon: "fa-pencil-alt" },
+                    { name: "Environmental Club", description: "Eco-awareness activities", icon: "fa-leaf" }
+                ],
+                specialServices: {
+                    transport: "Affordable community-based transport service covering Kabundi, Chiwempala, and surrounding areas.",
+                    transportImage: "https://images.unsplash.com/photo-1591280063444-d3c1c5e4f8c1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                    meals: "Subsidized meal program",
+                    library: "Community library access"
+                }
             }
         ];
 
         // DOM elements
         const homePage = document.getElementById('home-page');
         const aboutPage = document.getElementById('about-page');
+        const contactPage = document.getElementById('contact-page');
         const schoolsContainer = document.getElementById('schools-container');
         const modalOverlay = document.getElementById('modal-overlay');
-        const modal = document.getElementById('modal');
         const modalClose = document.getElementById('modal-close');
         const modalSchoolName = document.getElementById('modal-school-name');
         const modalSchoolTags = document.getElementById('modal-school-tags');
@@ -897,7 +1155,10 @@
         const modalSchoolInfo = document.getElementById('modal-school-info');
         const modalSchoolContact = document.getElementById('modal-school-contact');
         const modalSchoolResults = document.getElementById('modal-school-results');
+        const modalActivities = document.getElementById('modal-activities');
+        const modalSpecialServices = document.getElementById('modal-special-services');
         const navLinks = document.querySelectorAll('.nav-links a');
+        const footerLinks = document.querySelectorAll('.footer-column ul li a');
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navMenu = document.querySelector('.nav-links');
 
@@ -918,9 +1179,17 @@
                     renderSchools();
                 }
             }
+            
+            // Update active state in navigation
+            navLinks.forEach(link => {
+                link.style.color = '';
+                if (link.getAttribute('data-page') === pageId.replace('-page', '')) {
+                    link.style.color = 'var(--accent)';
+                }
+            });
         }
 
-        // Initialize page navigation
+        // Initialize page navigation for nav links
         navLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -931,8 +1200,7 @@
                 } else if (page === 'about') {
                     showPage('about-page');
                 } else if (page === 'contact') {
-                    // For now, just show about page
-                    showPage('about-page');
+                    showPage('contact-page');
                 } else if (page === 'schools') {
                     showPage('home-page');
                     // Scroll to schools section
@@ -944,6 +1212,27 @@
                 // Close mobile menu if open
                 if (window.innerWidth <= 768) {
                     navMenu.style.display = 'none';
+                }
+            });
+        });
+
+        // Initialize page navigation for footer links
+        footerLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const page = this.getAttribute('data-page');
+                
+                if (page === 'home') {
+                    showPage('home-page');
+                } else if (page === 'about') {
+                    showPage('about-page');
+                } else if (page === 'contact') {
+                    showPage('contact-page');
+                } else if (page === 'schools') {
+                    showPage('home-page');
+                    setTimeout(() => {
+                        document.getElementById('schools').scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
                 }
             });
         });
@@ -1000,7 +1289,7 @@
             
             if (!school) return;
             
-            // Set modal content
+            // Set basic content
             modalSchoolName.textContent = school.name;
             modalSchoolDescription.textContent = school.description;
             modalSchoolResults.textContent = school.results;
@@ -1035,6 +1324,29 @@
             modalSchoolContact.innerHTML = `
                 <li><span>Email</span><span>${school.contact.split(' | ')[0]}</span></li>
                 <li><span>Phone</span><span>${school.contact.split(' | ')[1]}</span></li>
+            `;
+            
+            // Set activities
+            modalActivities.innerHTML = '';
+            school.activities.forEach(activity => {
+                const activityItem = document.createElement('div');
+                activityItem.className = 'activity-item';
+                activityItem.innerHTML = `
+                    <i class="fas ${activity.icon}"></i>
+                    <h5>${activity.name}</h5>
+                    <p>${activity.description}</p>
+                `;
+                modalActivities.appendChild(activityItem);
+            });
+            
+            // Set special services
+            modalSpecialServices.innerHTML = `
+                <div class="service-header">
+                    <i class="fas fa-bus"></i>
+                    <h5>School Transport Service</h5>
+                </div>
+                <p>${school.specialServices.transport}</p>
+                <img src="${school.specialServices.transportImage}" alt="School Transport" class="service-image">
             `;
             
             // Show modal
